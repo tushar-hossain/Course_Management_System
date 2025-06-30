@@ -44,11 +44,11 @@ const EnrolledCourseList = ({ MyEnrolledCoursesPromise }) => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto text-white">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-base-300">
               <th>#</th>
               <th>Name</th>
               <th>Course Title</th>
@@ -85,7 +85,7 @@ const EnrolledCourseList = ({ MyEnrolledCoursesPromise }) => {
                   <th className="flex items-center gap-3">
                     <button
                       onClick={() => handelDeleteEnroll(_id)}
-                      className="p-3 bg-base-300 rounded-lg cursor-pointer hover:text-red-600"
+                      className="p-3 bg-base-300 rounded-lg cursor-pointer text-red-600 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]"
                     >
                       {" "}
                       <FaTrashAlt size={20} />{" "}

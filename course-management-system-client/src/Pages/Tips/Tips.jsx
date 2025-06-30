@@ -14,7 +14,7 @@ const Tips = () => {
           alt="card image"
         />
         <div>
-          <h1 className="mt-5 text-xl md:text-2xl font-semibold">
+          <h1 className="mt-5 text-xl md:text-2xl font-semibold text-black">
             Discover your professional{" "}
             <span className="text-[#7659FF]">strengths and weaknesses</span>
           </h1>
@@ -31,7 +31,7 @@ const Tips = () => {
           alt="card image"
         />
         <div>
-          <h1 className="mt-5 text-xl md:text-2xl font-semibold">
+          <h1 className="mt-5 text-xl md:text-2xl font-semibold text-black">
             Get <span className="text-[#7659FF]">personalized course </span>{" "}
             recommendations to upskill yourself
           </h1>
@@ -48,7 +48,7 @@ const Tips = () => {
           alt="card image"
         />
         <div>
-          <h1 className="mt-5 text-xl md:text-2xl font-semibold">
+          <h1 className="mt-5 text-xl md:text-2xl font-semibold text-black">
             Explore{" "}
             <span className="text-[#7659FF]">
               careers that match your personality,

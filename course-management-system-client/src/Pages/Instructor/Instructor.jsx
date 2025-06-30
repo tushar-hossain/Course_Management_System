@@ -5,7 +5,7 @@ const Instructor = () => {
   const data = useLoaderData();
 
   return (
-    <div className="py-12 w-11/12 mx-auto">
+    <div className="py-12 w-11/12 mx-auto text-white">
       <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold">
         Instructor
       </h1>
@@ -31,7 +31,7 @@ const Instructor = () => {
                   <img
                     src={profileImage}
                     alt=""
-                    className="block object-cover object-center w-full rounded-md h-60 dark:bg-gray-500"
+                    className="block object-cover object-center w-full rounded-md h-60"
                   />
                 </div>
                 <h1 className="text-xl md:text-2xl font-semibold">{name}</h1>
@@ -40,9 +40,7 @@ const Instructor = () => {
 
                   <p className="flex gap-2">
                     {specialization.map((sp, index) => (
-                      <span key={index} className="dark:text-gray-600">
-                        {sp}
-                      </span>
+                      <span key={index}>{sp}</span>
                     ))}
                   </p>
                   <p>Courses Count: {coursesCount}</p>

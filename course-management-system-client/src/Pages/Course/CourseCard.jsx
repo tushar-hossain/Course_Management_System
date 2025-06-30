@@ -5,47 +5,48 @@ import { Link } from "react-router";
 
 const CourseCard = ({ course }) => {
   const { isDark } = use(AuthContext);
-  const { _id, title, description, image, date, time, instructor } =
-    course || {};
+  const { _id, title, description, image } = course || {};
   return (
     <div
-      className={`max-w-lg p-4 shadow-md ${
-        isDark ? "bg-white text-black" : "bg-black text-white"
-      } rounded-lg hover:shadow-indigo-500`}
+      className={`w-11/12 p-2 mx-auto shadow-md ${
+        isDark ? "bg-primary text-white" : "bg-[#5c2ede] text-white"
+      } rounded-lg hover:shadow-indigo-500 h-full hover:shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]`}
     >
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <img
-            src={image}
-            alt="course images"
-            className="block object-cover object-center w-full rounded-md h-[200px] dark:bg-gray-500"
-          />
-        </div>
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1, transition: { duration: 2 } }}
-          className=" hover:bg-gray-300 p-2 rounded-lg hover:text-black"
-        >
+      <div className="flex flex-col justify-between h-full">
+        <div className="flex-1">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">{title}</h3>
-            <p className="leading-snug">{description}</p>
-            <p className="font-semibold">Instructor: {instructor}</p>
+            <img
+              src={image}
+              alt="course images"
+              className="block object-cover object-center w-full rounded-md h-[200px] dark:bg-gray-500"
+            />
           </div>
-          <div className="flex items-center gap-4">
-            <p>Date: {date}</p>
-            <p>{time}</p>
-          </div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, transition: { duration: 2 } }}
+            className="p-2"
+          >
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold">{title}</h3>
+              <p className="leading-snug">{description}</p>
+            </div>
+          </motion.div>
+        </div>
 
+        {/* This wrapper ensures the button sticks to the bottom */}
+        <div className="mt-4">
           <Link to={`/course-details/${_id}`}>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="btn w-full font-bold bg-[#5c2ede] mt-3"
+              className={`btn w-full font-bold ${
+                isDark ? "bg-primary border-white" : "bg-[#5c2ede] text-white"
+              }`}
             >
               Details
             </motion.button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

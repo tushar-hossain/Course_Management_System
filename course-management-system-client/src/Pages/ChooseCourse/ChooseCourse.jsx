@@ -1,5 +1,6 @@
 import React from "react";
 import { TiTick } from "react-icons/ti";
+import { Link } from "react-router";
 
 const ChooseCourse = () => {
   return (
@@ -8,12 +9,12 @@ const ChooseCourse = () => {
         <li> Why Choose Course</li>
       </h1>
 
-      <div className="lg:flex gap-4">
+      <div className="lg:flex gap-4 text-white">
         <div className=" space-y-3 lg:w-[800px] mt-5">
-          <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-3">
+          <h1 className="text-xl md:text-2xl lg:text-4xl text-justify font-semibold mb-3">
             The Educational Advantage of DB Programming
           </h1>
-          <p className="text-gray-500">
+          <p className=" text-justify">
             Our courses are designed to help you learn programming in Bangla,
             making it easier for beginners to understand complex topics. You’ll
             follow a clear, step-by-step curriculum that takes you from the
@@ -31,10 +32,13 @@ const ChooseCourse = () => {
             </p>
           </div>
 
-          <button className="btn bg-[#7659FF] text-white md:mt-10 mb-10">
-            Join Us Now
-          </button>
+          <Link to="/">
+            <button className="btn bg-[#7659FF] text-white md:mt-10 mb-10">
+              Join Us Now
+            </button>
+          </Link>
         </div>
+
         {/* card */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-[#FEE2E2]  hover:bg-[#FA6C6C] px-10 py-10 rounded-lg">
@@ -43,10 +47,10 @@ const ChooseCourse = () => {
               src="https://i.ibb.co/h1mJL64d/computer.png"
               alt="computer image"
             />
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3 text-black">
               Interactive Learning
             </h3>
-            <p>
+            <p className=" text-black">
               Interactive learning makes our courses engaging and effective,
               with hands-on practice, real projects, and active participation to
               boost your skills.
@@ -59,10 +63,10 @@ const ChooseCourse = () => {
               src="https://i.ibb.co/ZpR366S0/teaching.png"
               alt=""
             />
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3 text-black">
               Expert Instructors
             </h3>
-            <p>
+            <p className=" text-black">
               Expert instructors guide you through each topic with real-world
               experience, clear explanations, and a focus on helping you
               succeed.
@@ -74,10 +78,10 @@ const ChooseCourse = () => {
               src="https://i.ibb.co/XvC7Hxw/calendar.png"
               alt=""
             />
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3 text-black">
               Flexible Schedules
             </h3>
-            <p>
+            <p className=" text-black">
               Flexible schedules let you learn at your own pace, anytime and
               anywhere, making it easy to balance learning with daily life.
             </p>
@@ -89,10 +93,10 @@ const ChooseCourse = () => {
               src="https://i.ibb.co/b54qzKtZ/price.png"
               alt=""
             />
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3 text-black">
               Affordable Pricing
             </h3>
-            <p>
+            <p className=" text-black">
               Affordable pricing makes quality programming education accessible
               to everyone, with high-value courses that fit your budget and
               learning goals.

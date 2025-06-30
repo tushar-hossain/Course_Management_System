@@ -31,9 +31,7 @@ const CourseDetails = () => {
           setIsEnrolled(true);
         }
       })
-      .catch(() => {
-        
-      });
+      .catch(() => {});
   }, [user, id]);
 
   // handel Enroll button
@@ -101,8 +99,8 @@ const CourseDetails = () => {
   } = courses || {};
 
   return (
-    <div className="py-12">
-      <div className="max-w-lg p-4 shadow-md mx-auto rounded-lg hover:shadow-indigo-500">
+    <div className="py-12 text-white">
+      <div className="max-w-lg p-4 shadow-md mx-auto rounded-lg shadow-indigo-500 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
         <div className="space-y-4">
           <div className="space-y-2">
             <img
@@ -159,7 +157,7 @@ const CourseDetails = () => {
                     isEnrolled
                       ? "bg-[#5c2ede] cursor-pointer"
                       : "bg-[#5c2ede] cursor-pointer"
-                  }`}
+                  } border`}
                 >
                   {isEnrolled ? "Enrolled" : "Enroll Now"}
                 </button>
@@ -171,7 +169,7 @@ const CourseDetails = () => {
             ) : (
               <button
                 disabled
-                className="bg-[#5c2ede] w-full text-white py-2 rounded-lg"
+                className="bg-[#5c2ede] btn btn-primary border w-full text-white py-2 rounded-lg"
               >
                 Login to Enroll
               </button>

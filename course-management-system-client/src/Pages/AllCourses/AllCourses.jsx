@@ -3,10 +3,11 @@ import { useLoaderData } from "react-router";
 
 const AllCourses = () => {
   const courseData = useLoaderData();
+  
 
   return (
     <div className="py-12 w-11/12 mx-auto">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold">
+      <h1 className="text-xl text-white md:text-2xl lg:text-4xl font-semibold">
         All Courses
       </h1>
 
@@ -16,13 +17,13 @@ const AllCourses = () => {
           return (
             <div
               key={_id}
-              className={`max-w-lg p-4 shadow-md rounded-lg hover:shadow-indigo-500`}
+              className={`max-w-lg p-4 shadow-md rounded-lg shadow-indigo-500 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]`}
             >
               <div className="space-y-4">
                 <div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1, transition: { duration: 2 } }}
-                  className=" hover:bg-gray-300 p-2 rounded-lg hover:text-black"
+                  className="bg-gray-300 p-2 rounded-lg text-black"
                 >
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold">{title}</h3>

@@ -44,11 +44,11 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
   };
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto text-white">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-base-300">
               <th>#</th>
               <th>Name</th>
               <th>Course</th>

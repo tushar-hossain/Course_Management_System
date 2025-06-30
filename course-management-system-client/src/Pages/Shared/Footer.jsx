@@ -81,7 +81,7 @@ const Footer = () => {
                     href="https://workspace.google.com/intl/en-US/gmail/"
                     title="Email"
                     target="_blank"
-                    className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-600 dark:text-gray-50"
+                    className="flex items-center justify-center w-10 h-10 rounded-full hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] dark:bg-violet-600 dark:text-gray-50"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ const Footer = () => {
                     href="https://x.com/"
                     target="_blank"
                     title="Twitter"
-                    className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-600 dark:text-gray-50"
+                    className="flex items-center justify-center w-10 h-10 rounded-full hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] dark:bg-violet-600 dark:text-gray-50"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +114,7 @@ const Footer = () => {
                     href="https://github.com/"
                     title="GitHub"
                     target="_blank"
-                    className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-600 dark:text-gray-50"
+                    className="flex items-center justify-center w-10 h-10 rounded-full hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] dark:bg-violet-600 dark:text-gray-50"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

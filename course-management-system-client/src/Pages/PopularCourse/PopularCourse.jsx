@@ -10,10 +10,10 @@ const PopularCoursePromise = fetch(
 const PopularCourse = () => {
   return (
     <div className="bg-[url(https://i.ibb.co/N6gHM2LR/bg.jpg)] bg-no-repeat bg-center bg-cover py-10 px-8 rounded-lg overflow-hidden">
-      <h1 className="text-xl md:text-2xl lg:text-4xl my-5 font-bold text-white">
-        Popular Course
-      </h1>
-      <div className=" relative z-0">
+      <div className="relative z-10">
+        <h1 className="text-xl md:text-2xl lg:text-4xl my-5 font-bold text-white z-10">
+          Popular Course
+        </h1>
         <div className=" absolute -z-[1]">
           <motion.img
             animate={{

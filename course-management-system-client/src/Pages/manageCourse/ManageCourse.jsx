@@ -9,7 +9,7 @@ const ManageCourse = () => {
   const { ManageCoursePromise } = useManageCourseApi();
   return (
     <div className="py-12 w-11/12 mx-auto">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10">
+      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-white">
         My Posted Course
       </h1>
       <Suspense fallback={<Loading />}>

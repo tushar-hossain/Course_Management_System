@@ -50,17 +50,17 @@ const AddCourse = () => {
 
   return (
     <div className="w-11/12 mx-auto py-12">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold">
+      <h1 className="text-xl text-white md:text-2xl lg:text-4xl font-semibold">
         Add Course
       </h1>
 
       <form
         onSubmit={handelCourseSubmit}
-        className="bg-gray-300 py-8 px-15 rounded-lg mt-5"
+        className=" py-8 px-15 rounded-lg mt-5"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="title" className="text-sm">
+            <label htmlFor="title" className="text-sm text-white">
               Course Title
             </label>
             <input
@@ -73,7 +73,7 @@ const AddCourse = () => {
           </div>
           {/* photo url */}
           <div>
-            <label htmlFor="image" className="text-sm">
+            <label htmlFor="image" className="text-sm text-white">
               Photo URL
             </label>
             <input
@@ -86,7 +86,7 @@ const AddCourse = () => {
           </div>
           {/* description */}
           <div>
-            <label htmlFor="description" className="text-sm">
+            <label htmlFor="description" className="text-sm text-white">
               Course Description
             </label>
             <input
@@ -99,7 +99,7 @@ const AddCourse = () => {
           </div>
           {/* course level */}
           <div>
-            <label htmlFor="level" className="text-sm">
+            <label htmlFor="level" className="text-sm text-white">
               Course Level
             </label>
             <select
@@ -121,7 +121,7 @@ const AddCourse = () => {
           </div>
           {/* instructor */}
           <div>
-            <label htmlFor="instructor" className="text-sm">
+            <label htmlFor="instructor" className="text-sm text-white">
               Instructor Name
             </label>
             <input
@@ -134,7 +134,7 @@ const AddCourse = () => {
           </div>
           {/* tags */}
           <div>
-            <label htmlFor="tags" className="text-sm">
+            <label htmlFor="tags" className="text-sm text-white">
               Skill
             </label>
             <input
@@ -147,7 +147,7 @@ const AddCourse = () => {
           </div>
           {/* course duration */}
           <div>
-            <label htmlFor="duration" className="text-sm">
+            <label htmlFor="duration" className="text-sm text-white">
               Course Duration
             </label>
             <input
@@ -160,7 +160,7 @@ const AddCourse = () => {
           </div>
           {/* course seats */}
           <div>
-            <label htmlFor="seats" className="text-sm">
+            <label htmlFor="seats" className="text-sm text-white">
               Course Seats
             </label>
             <input
@@ -173,7 +173,7 @@ const AddCourse = () => {
           </div>
           {/* date */}
           <div>
-            <label htmlFor="date" className="text-sm">
+            <label htmlFor="date" className="text-sm text-white">
               Published Date
             </label>
             <input
@@ -185,7 +185,7 @@ const AddCourse = () => {
           </div>
           {/* time */}
           <div>
-            <label htmlFor="time" className="text-sm">
+            <label htmlFor="time" className="text-sm text-white">
               Current Time
             </label>
             <input
@@ -198,7 +198,7 @@ const AddCourse = () => {
           </div>
           {/* user name */}
           <div>
-            <label htmlFor="name" className="text-sm">
+            <label htmlFor="name" className="text-sm text-white">
               Name
             </label>
             <input
@@ -212,7 +212,7 @@ const AddCourse = () => {
           </div>
           {/* user email */}
           <div>
-            <label htmlFor="email" className="text-sm">
+            <label htmlFor="email" className="text-sm text-white">
               Email
             </label>
             <input
@@ -229,7 +229,7 @@ const AddCourse = () => {
         {/* add course */}
         <div>
           <input
-            className="btn w-full bg-[#5c2ede] mt-5 text-white font-bold"
+            className="btn w-full bg-[#5c2ede] mt-5 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white font-bold"
             type="submit"
             value="Add Course"
           />
