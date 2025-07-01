@@ -8,25 +8,31 @@ const AllCourses = () => {
   const handelChange = (e) => {
     const sortBy = e.target.value;
     if (sortBy === "ascending") {
-      fetch("http://localhost:3000/all-courses", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ sortBy }),
-      })
+      fetch(
+        "https://course-management-system-server-ashen.vercel.app/all-courses",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ sortBy }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setCourses(data);
         });
     } else {
-      fetch("http://localhost:3000/all-courses", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({}),
-      })
+      fetch(
+        "https://course-management-system-server-ashen.vercel.app/all-courses",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({}),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setCourses(data);

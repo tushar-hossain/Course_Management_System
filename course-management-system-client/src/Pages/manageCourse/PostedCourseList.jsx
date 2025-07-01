@@ -89,7 +89,7 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
                   <td>{description}</td>
                   <th className="flex items-center gap-3">
                     <Link to={`/editCourse/${_id}`}>
-                      <button className="p-3 bg-base-300 rounded-lg cursor-pointer hover:text-green-700">
+                      <button className="p-3 bg-base-300 rounded-lg cursor-pointer hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-[#5d2ede]">
                         {" "}
                         <FaEdit size={20} />{" "}
                       </button>
