@@ -1,6 +1,6 @@
 import React, { use, useEffect } from "react";
 import { Link, NavLink } from "react-router";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/images.jpeg";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
 
@@ -52,6 +52,9 @@ const Navbar = () => {
             <NavLink to="/myEnrolledCourses">My Enrolled Courses</NavLink>
           </li>
           <li>
+            <NavLink to="/all-courses-item">All Courses Item</NavLink>
+          </li>
+          <li>
             <NavLink to="/instructor">Courses Instructor</NavLink>
           </li>
         </>
@@ -96,10 +99,14 @@ const Navbar = () => {
           </div>
           <Link to="/">
             <div className="flex  items-center gap-3">
-              <img className="w-10 rounded-full" src={logo} alt="brand logo" />
-              <h1 className="text-xl font-bold hidden md:block">
+              <img
+                className="w-15 rounded-full text-white"
+                src={logo}
+                alt="brand logo"
+              />
+              {/* <h1 className="text-xl font-bold hidden md:block">
                 BD Programming
-              </h1>
+              </h1> */}
             </div>
           </Link>
         </div>

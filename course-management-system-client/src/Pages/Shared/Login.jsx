@@ -56,10 +56,10 @@ const Login = () => {
   };
 
   return (
-    <div className="py-12">
-      <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-800 dark:text-white">
+    <div className="py-5">
+      <div className="w-full mx-auto max-w-md p-8 rounded-xl dark:bg-gray-800 dark:text-white">
         <h1 className="text-2xl font-bold text-center">Login</h1>
-        <form onSubmit={handelLoginUser} className="space-y-6">
+        <form onSubmit={handelLoginUser} className="space-y-3">
           <div className="space-y-1 text-sm">
             <label htmlFor="email" className="block dark:text-white">
               Email
@@ -120,7 +120,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm dark:text-white dark:bg-violet-600 cursor-pointer">
+          <button className="block w-full p-3 text-center rounded-sm dark:text-white bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] cursor-pointer">
             Login
           </button>
         </form>
@@ -131,11 +131,11 @@ const Login = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         </div>
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 mt-2">
           {/* Google */}
           <button
             onClick={loginGoogle}
-            className="btn bg-white text-black border-[#e5e5e5]"
+            className="btn bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-[#e5e5e5]"
           >
             <svg
               aria-label="Google logo"
@@ -170,7 +170,7 @@ const Login = () => {
           {/* GitHub */}
           <button
             onClick={loginGithub}
-            className="btn bg-black text-white border-black"
+            className="btn bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-white"
           >
             <svg
               aria-label="GitHub logo"
@@ -187,7 +187,7 @@ const Login = () => {
             Login with GitHub
           </button>
         </div>
-        <p className="text-xs text-center sm:px-6 dark:text-white">
+        <p className="text-xs text-center sm:px-6 dark:text-white mt-2">
           Don't have an account?{" "}
           <Link to="/registration" className=" underline font-bold">
             Register

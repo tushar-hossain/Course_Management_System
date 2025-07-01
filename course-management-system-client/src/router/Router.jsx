@@ -14,6 +14,7 @@ import Error from "../Pages/Error/Error";
 import PrivateRoute from "../Pages/Routes/PrivateRoute/PrivateRoute";
 import Instructor from "../Pages/Instructor/Instructor";
 import AllCourses from "../Pages/AllCourses/AllCourses";
+import CoursesItem from "../Pages/CoursesItem/CoursesItem";
 
 export const router = createBrowserRouter([
   {
@@ -94,9 +95,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "all-courses",
+        element: <AllCourses />,
+        loader: () =>
+          fetch(
+            "https://course-management-system-server-ashen.vercel.app/all-courses"
+          ),
+        hydrateFallbackElement: <Loading />,
+        handle: { title: "All Courses" },
+      },
+      {
+        path: "all-courses-item",
         element: (
           <PrivateRoute>
-            <AllCourses />
+            <CoursesItem />
           </PrivateRoute>
         ),
         loader: () =>

@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/images.jpeg";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 

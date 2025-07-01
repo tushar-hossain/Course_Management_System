@@ -28,7 +28,7 @@ const Home = () => {
       </section>
 
       {/* Popular Course section */}
-      <section className="w-11/12 mx-auto  py-8">
+      <section className="w-11/12 mx-auto py-8">
         <PopularCourse />
       </section>
 

@@ -20,7 +20,7 @@ const PopularCourseCard = ({ PopularCoursePromise }) => {
               whileTap={{ scale: 1 }}
               className={`${
                 isDark
-                  ? "bg-linear-to-r from-[#5c2ede] text-black"
+                  ? "bg-linear-to-r from-[#5c2ede] text-white"
                   : "bg-linear-to-r from-[#5c2ede] text-white"
               } p-5 rounded-lg space-y-3 hover:shadow-2xl shadow-[#5c2ede]`}
             >
