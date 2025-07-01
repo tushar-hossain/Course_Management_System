@@ -80,7 +80,7 @@ async function run() {
       const result = await courseCollection
         .find()
         .sort({ date: -1 })
-        .limit(6)
+        .limit(8)
         .toArray();
       res.status(200).send(result);
     });
@@ -88,6 +88,22 @@ async function run() {
     app.get("/all-courses", async (req, res) => {
       const result = await courseCollection.find().toArray();
       res.status(200).send(result);
+    });
+
+    app.post("/all-courses", async (req, res) => {
+      if (req.body.sortBy === "ascending") {
+        const result = await courseCollection
+          .find()
+          .sort({ amount: 1 })
+          .toArray();
+        res.status(200).send(result);
+      } else {
+        const result = await courseCollection
+          .find()
+          .sort({ amount: -1 })
+          .toArray();
+        res.status(200).send(result);
+      }
     });
 
     app.get(
@@ -154,27 +170,34 @@ async function run() {
     });
 
     //enrolled api
-    app.get("/enrollments", async (req, res) => {
-      const email = req.query.email;
-      const query = {};
-      if (email) {
-        query.email = email;
-      }
-      const existing = await enrollmentsCollection.find(query).toArray();
-      for (const course of existing) {
-        const courseId = course.courseId;
-        const courseQuery = { _id: new ObjectId(courseId) };
-        const coursesEnrollMents = await courseCollection.findOne(courseQuery);
-        course.title = coursesEnrollMents.title;
-        course.image = coursesEnrollMents.image;
-        course.level = coursesEnrollMents.level;
-        course.instructor = coursesEnrollMents.instructor;
-        course.duration = coursesEnrollMents.duration;
-        course.name = coursesEnrollMents.name;
-      }
+    app.get(
+      "/enrollments",
+      firebaseToken,
+      verifyTokenEmail,
+      async (req, res) => {
+        const email = req.query.email;
+        const query = {};
+        if (email) {
+          query.email = email;
+        }
+        const existing = await enrollmentsCollection.find(query).toArray();
+        for (const course of existing) {
+          const courseId = course.courseId;
+          const courseQuery = { _id: new ObjectId(courseId) };
+          const coursesEnrollMents = await courseCollection.findOne(
+            courseQuery
+          );
+          course.title = coursesEnrollMents.title;
+          course.image = coursesEnrollMents.image;
+          course.level = coursesEnrollMents.level;
+          course.instructor = coursesEnrollMents.instructor;
+          course.duration = coursesEnrollMents.duration;
+          course.name = coursesEnrollMents.name;
+        }
 
-      res.status(200).send(existing);
-    });
+        res.status(200).send(existing);
+      }
+    );
 
     app.get("/enrollments/:id", async (req, res) => {
       const query = { courseId: req.params.id };
