@@ -25,11 +25,12 @@ const AddCourse = () => {
     const form = e.target;
     const formDate = new FormData(form).entries();
     const data = Object.fromEntries(formDate);
-    const { tags, seats, ...courseData } = data;
+    const { tags, seats, amount, ...courseData } = data;
     const newTags = tags.split(",").map((tag) => tag.trim());
     courseData.tags = newTags;
     courseData.time = times;
     courseData.seats = parseInt(seats);
+    courseData.amount = parseInt(amount);
     courseData.enrolled = 0;
 
     // data send to server side
@@ -41,6 +42,7 @@ const AddCourse = () => {
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("Added course successfully.");
+          form.reset();
         }
       })
       .catch(() => {
@@ -56,7 +58,7 @@ const AddCourse = () => {
 
       <form
         onSubmit={handelCourseSubmit}
-        className=" py-8 px-15 rounded-lg mt-5"
+        className=" py-5 px-15 rounded-lg mt-5"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
@@ -193,6 +195,31 @@ const AddCourse = () => {
               name="time"
               onChange={handleTimeChange}
               placeholder="Enter Current Time"
+              className="w-full rounded-md p-2 bg-base-100 active:bg-base-100"
+            />
+          </div>
+          {/* amount */}
+          <div>
+            <label htmlFor="amount" className="text-sm text-white">
+              Published Date
+            </label>
+            <input
+              type="number"
+              name="amount"
+              placeholder="Enter Course Amount"
+              className="w-full rounded-md p-2 bg-base-100 active:bg-base-100"
+            />
+          </div>
+          {/* start date */}
+          <div>
+            <label htmlFor="startDate" className="text-sm text-white">
+              Current Time
+            </label>
+            <input
+              type="time"
+              name="startDate"
+              onChange={handleTimeChange}
+              placeholder="Enter Course Start Date"
               className="w-full rounded-md p-2 bg-base-100 active:bg-base-100"
             />
           </div>

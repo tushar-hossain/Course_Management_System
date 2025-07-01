@@ -27,8 +27,8 @@ const CourseCard = ({ course }) => {
             className="p-2"
           >
             <div className="space-y-2">
-              <h3 className="text-xl font-bold">{title}</h3>
-              <p className="leading-snug">{description}</p>
+              <h3 className="font-bold">{title}</h3>
+              <p className="leading-snug text-sm">{description}</p>
             </div>
           </motion.div>
         </div>

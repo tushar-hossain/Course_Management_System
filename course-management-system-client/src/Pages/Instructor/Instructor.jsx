@@ -24,7 +24,10 @@ const Instructor = () => {
             socialLinks,
           } = instructor || {};
           return (
-            <div key={_id} className=" p-4 shadow-md mt-5">
+            <div
+              key={_id}
+              className=" p-4 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] mt-5 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-lg"
+            >
               <div className="flex justify-between pb-4 border-bottom"></div>
               <div className="space-y-4">
                 <div>

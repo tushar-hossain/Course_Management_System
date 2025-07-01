@@ -14,8 +14,6 @@ const TitleMatch = () => {
       setTitle((document.title = "BD Programming"));
     }
   }, [matches]);
-  //   const match = matches.find((m) => m.handle?.title);
-  //   const title = match ? match.handle.title : "BD Programming";
 
   return (
     <Helmet>

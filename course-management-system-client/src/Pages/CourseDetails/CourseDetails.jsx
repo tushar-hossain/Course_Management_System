@@ -96,6 +96,8 @@ const CourseDetails = () => {
     tags,
     seats,
     enrolled,
+    amount,
+    startDate,
   } = courses || {};
 
   return (
@@ -145,6 +147,14 @@ const CourseDetails = () => {
               <span className="font-semibold">Seats: </span>
               {seats}
             </p>
+            <p>
+              <span className="font-semibold">Course Fee: </span>
+              {amount}
+            </p>
+            <p>
+              <span className="font-semibold">Course Start Date: </span>
+              {startDate}
+            </p>
           </div>
           {/* button enroll */}
 
@@ -157,7 +167,7 @@ const CourseDetails = () => {
                     isEnrolled
                       ? "bg-[#5c2ede] cursor-pointer"
                       : "bg-[#5c2ede] cursor-pointer"
-                  } border`}
+                  } border hover:shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]`}
                 >
                   {isEnrolled ? "Enrolled" : "Enroll Now"}
                 </button>

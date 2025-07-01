@@ -24,6 +24,6 @@ body::before {
   background-image: url("../src/assets/images/download.svg");
   background-size: cover;
   background-position: center;
-  opacity: 0.2; /* Adjust the opacity here */
-  z-index: -1; /* Place behind body content */
+  opacity: 0.2;
+  z-index: -1;
 }
