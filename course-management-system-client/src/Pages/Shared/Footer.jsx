@@ -131,13 +131,7 @@ const Footer = () => {
           </div>
           <div className="grid justify-center pt-6 lg:justify-between">
             <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
-              <span>©2025 All rights reserved</span>
-              <a rel="noopener noreferrer" href="#">
-                <span>Privacy policy</span>
-              </a>
-              <a rel="noopener noreferrer" href="#">
-                <span>Terms of service</span>
-              </a>
+              <span>©2025 All rights reserved bdprogramming</span>
             </div>
             <div className="flex justify-center pt-4 space-x-4 text-center lg:pt-0 lg:col-end-13">
               <div>
@@ -145,7 +139,7 @@ const Footer = () => {
                 <p>BD Programming</p>
                 <p>Dhaka, Bangladesh</p>
                 <p>✉️ Email: support@bdprogramming.com</p>
-                <p>🌐 Website: https://bdprogramming.com</p>
+                <p>🌐 Website: https://bd-programminf.web.app/</p>
               </div>
             </div>
           </div>
