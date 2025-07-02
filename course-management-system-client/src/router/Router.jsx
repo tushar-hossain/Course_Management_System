@@ -15,6 +15,7 @@ import PrivateRoute from "../Pages/Routes/PrivateRoute/PrivateRoute";
 import Instructor from "../Pages/Instructor/Instructor";
 import AllCourses from "../Pages/AllCourses/AllCourses";
 import CoursesItem from "../Pages/CoursesItem/CoursesItem";
+import FreeSeminarSchedule from "../Pages/FreeSeminarSchedule/FreeSeminarSchedule";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
         path: "registration",
         element: <Registration />,
         handle: { title: "Registration" },
+      },
+      {
+        path: "free-seminar-schedule",
+        Component: FreeSeminarSchedule,
       },
       {
         path: "course-details/:id",

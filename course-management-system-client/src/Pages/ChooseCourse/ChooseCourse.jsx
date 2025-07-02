@@ -32,9 +32,9 @@ const ChooseCourse = () => {
             </p>
           </div>
 
-          <Link to="/">
-            <button className="btn bg-[#7659FF] text-white md:mt-10 mb-10">
-              Join Us Now
+          <Link to="/free-seminar-schedule">
+            <button className="btn bg-[#7659FF] border border-white text-white md:mt-10 mb-10 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+              Free Seminar Schedule
             </button>
           </Link>
         </div>
