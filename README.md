@@ -1,6 +1,6 @@
-# BD Programming
+# BD Programming Client
 
-BD Programming is a web-based learning platform designed to help students learn modern web development technologies interactively and efficiently.
+A fully functional online learning platform frontend developed using React.js, styled with Tailwind CSS and DaisyUI. This platform enables users to browse, view details, and enroll in courses, as well as join free seminars and track their progress. Authenticated users can securely enroll in a course, and admin users can manage content.
 
 ## 🔗 Live URL https://bd-programminf.web.app/
 
@@ -8,27 +8,66 @@ BD Programming is a web-based learning platform designed to help students learn 
 
 The goal of BD Programming is to provide beginner-friendly and affordable programming education in Bangla. It helps aspiring developers learn frontend and backend technologies through interactive and hands-on courses.
 
-## 🚀 Key Features
+## ⚙️ Core Features
+🔐 Firebase Authentication (Email/Password + GitHub)
+📚 View available courses with detailed pages
+🧠 Role-based access (User & Admin)
+✅ Enroll / Unenroll toggle system (1 user can’t enroll twice)
+🧾 Free Seminar Schedule form
+📆 Course seat availability, tags, duration
+🔑 Protected routes with JWT authorization
+🧑 Admin access to add/manage courses (optional)
+🎨 Dynamic title via route metadata
+📱 Responsive UI
 
-- 🔐 **User Authentication** (Email/Password and Google Login using Firebase + JWT)
-- 📚 **Course Browsing** — View all available courses with filtering and sorting
-- 📝 **Course Enrollment** — Users can enroll in a course and avoid duplicate enrollments
-- 🕒 **Time** — 12-hour AM/PM time input for class scheduling
-- 🖼️ **Dynamic Banner Slider** — Slick carousel with React Slick and Framer Motion animations
-- 🧭 **Dynamic Page Titles** — Automatically update tab title based on route
-- 📦 **Protected Routes** — Access restriction based on login state
-- 📅 **Latest Courses Section** — Display of the 6 most recently added courses
-- 📁 **Clean File Structure** — Component-based architecture with reusable code
 
-## 📦 NPM Packages Used
+## 🛠️ Tech Stack
+⚛️ React.js
+🔁 React Router DOM
+🎨 Tailwind CSS + DaisyUI
+🔐 Firebase Auth
+🔐 JWT Auth (client integration)
+🧠 React Context API
+🔄 Axios + useAxiosSecure
+📋 React Hook Form
+🔔 React Toastify + SweetAlert2
 
-Packages
+## 🔐 Authentication
+🔑 Firebase Auth (Email/Password + GitHub login)
+🌐 Context API manages global auth state
+🔒 useAxiosSecure ensures secure API communication
+⛔ Enroll button disabled for unauthenticated users
 
-`react-router-dom` | Routing and nested routes  
-`react-slick` | Slider/Carousel in the hero section  
-`slick-carousel` | Required styles for react-slick  
-`framer-motion` | Smooth animations on slider and components  
-`react-helmet` | Set dynamic title and meta tags  
-`axios` | For API calls (if used for server interaction)
-`firebase` | Authentication (email, Google login)
-`dotenv` | Environment variable management
+## 📘 Courses
+🧑 View course details (title, description, instructor, date, time)
+✅ Enroll / Unenroll toggle for authenticated users
+🚫 Prevent multiple enrollments
+📤 Enrollment stored via secure POST request
+
+## 🗓️ Free Seminar Form
+📛 Name, 📧 Email, 📝 Message
+📨 Submit seminar participation request
+🧾 Success feedback via Toast
+
+##📖 Environment Setup
+
+```
+VITE_API_BASE_URL=your_backend_api_url
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+```
+
+## 🧪 Run Locally
+```
+git clone https://github.com/tushar-hossain/Course_Management_System.git
+cd course-management-system-client
+npm install
+npm run dev
+```
+
+## ✨ Contribution
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## ✉️ Contact
+Have questions or suggestions?
+📧 tusharsu97@gmail.com
