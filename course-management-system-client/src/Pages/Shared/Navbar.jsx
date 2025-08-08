@@ -1,8 +1,9 @@
 import React, { use, useEffect } from "react";
 import { Link, NavLink } from "react-router";
-import logo from "../../../public/images.jpeg";
+import logo from "/public/logo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
+import { CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
   const { user, logOutUser, isDark, setIsDark } = use(AuthContext);
@@ -40,7 +41,7 @@ const Navbar = () => {
         <NavLink to="/all-courses">All Courses</NavLink>
       </li>
       {/*  */}
-      {user && (
+      {/* {user && (
         <>
           <li>
             <NavLink to="/addCourse">Add course</NavLink>
@@ -58,7 +59,7 @@ const Navbar = () => {
             <NavLink to="/instructor">Courses Instructor</NavLink>
           </li>
         </>
-      )}
+      )} */}
     </>
   );
 
@@ -66,11 +67,15 @@ const Navbar = () => {
     <div
       className={
         isDark
-          ? "sticky top-0 z-50 bg-primary"
-          : "bg-[#5c2ede] sticky top-0 z-50"
+          ? "sticky top-0 z-50 bg-base-100"
+          : "bg-base-100 sticky top-0 z-50 shadow-2xl"
       }
     >
-      <div className="w-11/12 mx-auto flex items-center p-0 py-6 text-white border-b-1">
+      <div
+        className={`w-11/12 mx-auto flex items-center p-0 py-6 ${
+          isDark ? "text-white" : "text-primary"
+        }`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -92,30 +97,43 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-white dark:bg-black rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
           <Link to="/">
-            <div className="flex  items-center gap-3">
+            <div className="flex items-center gap-3">
               <img
-                className="w-15 rounded-full text-white"
+                className="w-10 md:w-15 rounded-full text-white"
                 src={logo}
                 alt="brand logo"
               />
-              {/* <h1 className="text-xl font-bold hidden md:block">
-                BD Programming
-              </h1> */}
             </div>
           </Link>
+          <div className="hidden md:block">
+            <form
+              className={`flex gap-2 rounded-md px-3 ms-4 ${
+                isDark ? "" : "bg-gray-200"
+              }`}
+            >
+              <input
+                type="text"
+                className="outline-none focus:outline-none border-none bg-transparent py-2"
+                placeholder="Search course"
+              />
+              <button type="submit" className="cursor-pointer">
+                <CiSearch size={25} />
+              </button>
+            </form>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">{links}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="relative group inline-block">
+            <div className="cursor-pointer">
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn-circle avatar">
                   <div className="w-10 rounded-full flex flex-col">
@@ -129,7 +147,7 @@ const Navbar = () => {
 
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-gray-500 dark:bg-black rounded-box z-1 mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
                   <li>
                     <p>{user?.displayName}</p>
@@ -142,12 +160,12 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              <p className="absolute -left-10 top-5 transform -translate-x-1/2 translate-y-full bg-gray-800 text-sm px-2 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-40">
-                {user?.displayName}
-              </p>
             </div>
           ) : (
-            <NavLink className="font-bold text-xl" to="/login">
+            <NavLink
+              className="font-bold text-white btn btn-outline bg-secondary border-none"
+              to="/login"
+            >
               Login
             </NavLink>
           )}

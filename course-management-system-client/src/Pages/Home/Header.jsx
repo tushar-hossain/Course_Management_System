@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <div className={isDark ? "bg-primary" : "bg-[#5c2ede] md:px-3 md:py-3 p-2"}>
+    <div className={isDark ? "bg-base-300" : "md:px-3 md:py-3 p-2"}>
       <div className="slider-container w-11/12 mx-auto px-2 py-2">
         <Slider {...settings}>
           {/* slider-1 */}
