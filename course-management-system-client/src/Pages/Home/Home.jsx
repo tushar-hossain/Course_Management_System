@@ -10,16 +10,22 @@ const latestCoursesPromise = fetch(
   "https://course-management-system-server-ashen.vercel.app/courses"
 ).then((res) => res.json());
 
+const sliders = fetch(`http://localhost:3000/api/slider`).then((res) =>
+  res.json()
+);
+
 const Home = () => {
   return (
     <div>
       {/* slider */}
-      <section className="mb-8">
-        <Header />
+      <section>
+        <Suspense fallback={<Loading />}>
+          <Header sliders={sliders} />
+        </Suspense>
       </section>
 
       {/* Courses Section */}
-      <section className="w-11/12 mx-auto  py-8">
+      <section className="w-11/12 mx-auto my-12">
         <Suspense fallback={<Loading />}>
           <div>
             <Course latestCoursesPromise={latestCoursesPromise} />
@@ -28,17 +34,17 @@ const Home = () => {
       </section>
 
       {/* Popular Course section */}
-      <section className="w-11/12 mx-auto py-8">
+      <section className="w-11/12 mx-auto my-12">
         <PopularCourse />
       </section>
 
       {/* Why Choose  */}
-      <section className="w-11/12 mx-auto py-8">
+      <section className="w-11/12 mx-auto my-12">
         <ChooseCourse />
       </section>
 
       {/* card */}
-      <section className="w-11/12 mx-auto py-8">
+      <section className="w-11/12 mx-auto my-12">
         <Tips />
       </section>
     </div>

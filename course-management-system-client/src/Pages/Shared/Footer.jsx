@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import logo from "../../assets/images/images.jpeg";
+import logo from "/logo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
@@ -50,7 +50,7 @@ const Footer = () => {
 
   return (
     <div>
-      <footer className="py-6 mt-8 dark:bg-[#2f045a] bg-gray-100 dark:text-white">
+      <footer className="py-6 mt-8 bg-[#e0f4fd] text-black">
         <div className="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
           <div className="grid grid-cols-12">
             <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
@@ -60,7 +60,7 @@ const Footer = () => {
                 href="#"
                 className="flex justify-center space-x-3 md:justify-start"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full">
                   <img className="w-10 rounded-full" src={logo} alt="" />
                 </div>
                 <span className="self-center text-2xl font-semibold">
