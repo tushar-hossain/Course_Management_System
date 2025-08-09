@@ -75,6 +75,8 @@ async function run() {
       .db("bdProgramming")
       .collection("instructor");
 
+    const slidersCollection = client.db("bdProgramming").collection("slider");
+
     // courses api
     app.get("/courses", async (req, res) => {
       const result = await courseCollection
@@ -244,6 +246,12 @@ async function run() {
     app.get("/instructor", async (req, res) => {
       const result = await instructorCollection.find().toArray();
       res.status(200).send(result);
+    });
+
+    // slider api
+    app.get("/api/slider", async (req, res) => {
+      const result = await slidersCollection.find().toArray();
+      res.send(result);
     });
 
     // Send a ping to confirm a successful connection
