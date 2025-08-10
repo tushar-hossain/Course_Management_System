@@ -30,7 +30,7 @@ const PopularCourseCard = ({ PopularCoursePromise }) => {
                   <div className="flex flex-col">
                     <div>
                       <img
-                        className="h-60 rounded-md w-full"
+                        className="h-30 md:h-60 rounded-md w-full"
                         src={course?.image}
                         alt=""
                       />

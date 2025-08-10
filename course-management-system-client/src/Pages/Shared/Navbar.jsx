@@ -50,14 +50,22 @@ const Navbar = () => {
       <li>
         <NavLink to="/contact">Contact</NavLink>
       </li>
+
       {/*  */}
       {user && (
         <>
           <li>
-            <NavLink to="/myEnrolledCourses">My Enrolled Courses</NavLink>
-          </li>
-          <li>
-            <NavLink to="/instructor">Courses Instructor</NavLink>
+            <details className="w-full">
+              <summary>Courses</summary>
+              <ul className="p-2">
+                <li>
+                  <NavLink to="/myEnrolledCourses">Enrolled Courses</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/instructor">Courses Instructor</NavLink>
+                </li>
+              </ul>
+            </details>
           </li>
         </>
       )}
@@ -152,7 +160,7 @@ const Navbar = () => {
                 >
                   <p className="ml-2">{user?.displayName}</p>
                   <li>
-                    <Link to={"/dashboard"}>Dashboard</Link>
+                    <Link to={"/dashboard/home"}>Dashboard</Link>
                   </li>
                   <li>
                     <button onClick={handelLogOut}>Logout</button>

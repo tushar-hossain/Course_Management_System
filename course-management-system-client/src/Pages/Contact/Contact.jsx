@@ -1,9 +1,22 @@
-
+import Swal from "sweetalert2";
 
 export default function Contact() {
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
 
-
-
+    form.reset();
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-10 px-4">
@@ -40,11 +53,12 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div>
-            <form  className="space-y-5">
+            <form onSubmit={handelSubmit} className="space-y-5">
               <div>
                 <label className="block text-gray-700 mb-1">Name</label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
                 />
@@ -53,6 +67,7 @@ export default function Contact() {
                 <label className="block text-gray-700 mb-1">Email</label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500  text-black"
                 />
@@ -61,6 +76,7 @@ export default function Contact() {
                 <label className="block text-gray-700 mb-1">Message</label>
                 <textarea
                   placeholder="Your Message"
+                  name="message"
                   rows="4"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500  text-black"
                 ></textarea>

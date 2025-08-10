@@ -11,6 +11,8 @@ const Course = ({ trainingCourse, categorys }) => {
 
   const handelSubmit = (categoryName) => {
     console.log(categoryName);
+
+    
   };
 
   useEffect(() => {

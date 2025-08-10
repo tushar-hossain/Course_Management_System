@@ -32,14 +32,14 @@ const Header = ({ sliders }) => {
                       {item?.description?.slice(0, 50)}...
                     </p>
                     <Link
-                      to={"/"}
+                      to={"/all-courses"}
                       className="text-xs bg-secondary text-white px-1 py-2 rounded-md cursor-pointer"
                     >
                       {item.ctaText}
                     </Link>
                   </div>
 
-                  <div className="flex-1">
+                  <div className="flex-1 w-full">
                     <img className="w-full rounded-lg" src={item?.image} />
                   </div>
                 </div>

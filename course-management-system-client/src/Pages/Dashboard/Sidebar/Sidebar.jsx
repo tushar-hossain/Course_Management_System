@@ -34,7 +34,7 @@ function Sidebar() {
           <li>
             <NavLink
               to="/dashboard/home"
-              className="flex items-center gap-2 text-xl font-semibold"
+              className="flex items-center gap-2 font-semibold"
             >
               <FaHome className="text-lg" />
               Home
@@ -44,7 +44,7 @@ function Sidebar() {
           <li>
             <NavLink
               to="/dashboard/addCourse"
-              className="flex items-center gap-2 text-xl font-semibold"
+              className="flex items-center gap-2 font-semibold"
             >
               <FaPlusCircle /> Add Course
             </NavLink>
@@ -52,7 +52,7 @@ function Sidebar() {
           <li>
             <NavLink
               to="/dashboard/manageCourse"
-              className="flex items-center gap-2 text-xl font-semibold"
+              className="flex items-center gap-2 font-semibold"
             >
               <FaTasks /> Manage Courses
             </NavLink>
@@ -60,7 +60,7 @@ function Sidebar() {
           <li>
             <NavLink
               to="/dashboard/all-courses-item"
-              className="flex items-center gap-2 text-xl font-semibold"
+              className="flex items-center gap-2 font-semibold"
             >
               <FaListAlt /> All Courses Item
             </NavLink>
