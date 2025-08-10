@@ -18,6 +18,8 @@ import CoursesItem from "../Pages/CoursesItem/CoursesItem";
 import FreeSeminarSchedule from "../Pages/FreeSeminarSchedule/FreeSeminarSchedule";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashboardHome from "../Pages/Dashboard/Home/DashboardHome";
+import Blogs from "../Pages/Blogs/Blogs";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +93,14 @@ export const router = createBrowserRouter([
           ),
         hydrateFallbackElement: <Loading />,
         handle: { title: "All Courses" },
+      },
+      {
+        path: "blogs",
+        Component: Blogs,
+      },
+      {
+        path: "contact",
+        Component: Contact,
       },
     ],
   },

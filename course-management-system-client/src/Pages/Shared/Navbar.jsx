@@ -44,6 +44,12 @@ const Navbar = () => {
       <li>
         <NavLink to="/free-seminar-schedule">Free Seminar</NavLink>
       </li>
+      <li>
+        <NavLink to="/blogs">Blogs</NavLink>
+      </li>
+      <li>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
       {/*  */}
       {user && (
         <>

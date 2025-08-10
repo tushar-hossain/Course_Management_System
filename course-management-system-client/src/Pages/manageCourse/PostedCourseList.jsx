@@ -4,12 +4,10 @@ import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const PostedCourseList = ({ ManageCoursePromise }) => {
   const coursesData = use(ManageCoursePromise);
   const [courses, setCourses] = useState([]);
-  const { isDark } = use(AuthContext);
 
   useEffect(() => {
     setCourses(coursesData);
@@ -50,7 +48,7 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-white">
               <th>#</th>
               <th>Name</th>
               <th>Course</th>
@@ -58,17 +56,15 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-white">
             {/* row 1 */}
             {courses.map((course, index) => {
               const { _id, name, description, instructor, image, title } =
                 course || {};
               return (
                 <tr key={_id}>
-                  <td className={`${isDark ? "text-black" : "text-white"}`}>
-                    {index + 1}
-                  </td>
-                  <td className={`${isDark ? "text-black" : "text-white"}`}>
+                  <td>{index + 1}</td>
+                  <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
@@ -83,16 +79,14 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
                       </div>
                     </div>
                   </td>
-                  <td className={`${isDark ? "text-black" : "text-white"}`}>
+                  <td>
                     {title}
                     <br />
                     <span className="badge badge-ghost badge-sm">
                       {instructor}
                     </span>
                   </td>
-                  <td className={`${isDark ? "text-black" : "text-white"}`}>
-                    {description}
-                  </td>
+                  <td>{description}</td>
                   <th className="flex items-center gap-3">
                     <Link to={`/editCourse/${_id}`}>
                       <button className="p-3 bg-base-300 rounded-lg cursor-pointer hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-primary">

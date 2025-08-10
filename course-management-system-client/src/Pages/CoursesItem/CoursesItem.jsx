@@ -22,7 +22,7 @@ const CoursesItem = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-white">
               <th>#</th>
               <th>Name</th>
               <th>Course</th>
@@ -46,7 +46,7 @@ const CoursesItem = () => {
                 startDate,
               } = course || {};
               return (
-                <tr key={_id}>
+                <tr key={_id} className="text-white">
                   <td>{index + 1}</td>
                   <td>
                     <div className="flex items-center gap-3">

@@ -58,7 +58,7 @@ const AddCourse = () => {
 
       <form
         onSubmit={handelCourseSubmit}
-        className=" py-5 px-2 rounded-lg mt-5"
+        className=" py-5 px-2 rounded-lg mt-5 text-white"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
