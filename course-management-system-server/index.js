@@ -80,6 +80,7 @@ async function run() {
       .db("bdProgramming")
       .collection("categorys");
     const blogsCollection = client.db("bdProgramming").collection("blogs");
+    const usersCollection = client.db("bdProgramming").collection("users");
 
     // courses api
     app.get("/courses", async (req, res) => {
@@ -268,6 +269,20 @@ async function run() {
     app.get("/api/blogs", async (req, res) => {
       const result = await blogsCollection.find().toArray();
       res.send(result);
+    });
+
+    // chart data
+    app.get("/api/dashboard", async (req, res) => {
+      const user = await usersCollection.countDocuments();
+      const course = await courseCollection.countDocuments();
+      const enrollments = await enrollmentsCollection.countDocuments();
+      const instructor = await instructorCollection.countDocuments();
+      res.send([
+        { name: "users", uv: user },
+        { name: "course", uv: course },
+        { name: "enrollments", uv: enrollments },
+        { name: "instructor", uv: instructor },
+      ]);
     });
 
     // Send a ping to confirm a successful connection
