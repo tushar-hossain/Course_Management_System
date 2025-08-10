@@ -76,13 +76,17 @@ async function run() {
       .collection("instructor");
 
     const slidersCollection = client.db("bdProgramming").collection("slider");
+    const categorysCollection = client
+      .db("bdProgramming")
+      .collection("categorys");
+    const blogsCollection = client.db("bdProgramming").collection("blogs");
 
     // courses api
     app.get("/courses", async (req, res) => {
       const result = await courseCollection
         .find()
         .sort({ date: -1 })
-        .limit(8)
+        .limit(10)
         .toArray();
       res.status(200).send(result);
     });
@@ -251,6 +255,18 @@ async function run() {
     // slider api
     app.get("/api/slider", async (req, res) => {
       const result = await slidersCollection.find().toArray();
+      res.send(result);
+    });
+
+    // category api
+    app.get("/api/category", async (req, res) => {
+      const result = await categorysCollection.find().toArray();
+      res.send(result);
+    });
+
+    // blogs api
+    app.get("/api/blogs", async (req, res) => {
+      const result = await blogsCollection.find().toArray();
       res.send(result);
     });
 
