@@ -1,53 +1,40 @@
-import React, { use } from "react";
-import { AuthContext } from "../../Context/AuthContext/AuthContext";
-import { motion } from "motion/react";
 import { Link } from "react-router";
+import { CiClock2 } from "react-icons/ci";
+import { PiStudent } from "react-icons/pi";
 
 const CourseCard = ({ course }) => {
-  const { isDark } = use(AuthContext);
-  const { _id, title, description, image } = course || {};
+  const { _id, description, enrolled, image, price, title, date } =
+    course || {};
+
   return (
-    <div
-      className={`w-11/12 p-2 mx-auto shadow-md ${
-        isDark ? "bg-primary text-white" : "bg-[#5c2ede] text-white"
-      } rounded-lg hover:shadow-indigo-500 h-full hover:shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]`}
-    >
-      <div className="flex flex-col justify-between h-full">
+    <div className="bg-base-300 p-2 rounded-lg flex flex-col">
+      <Link to={`/course-details/${_id}`}>
         <div className="flex-1">
-          <div className="space-y-2">
-            <img
-              src={image}
-              alt="course images"
-              className="block object-cover object-center w-full rounded-md h-[200px] dark:bg-gray-500"
-            />
+          <div>
+            <img className="h-40 rounded-md w-full" src={image} alt="" />
           </div>
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1, transition: { duration: 2 } }}
-            className="p-2"
-          >
-            <div className="space-y-2">
-              <h3 className="font-bold">{title}</h3>
-              <p className="leading-snug text-sm">{description}</p>
+          <div className="space-y-3 mt-4">
+            <h1 className="text-xl font-bold text-primary">{title}</h1>
+            <div className="flex justify-between items-center">
+              <p className="flex gap-3 items-center">
+                <CiClock2 size={20} /> {date}
+              </p>
+              <p className="flex gap-1 items-center">
+                <PiStudent size={20} />
+                <span className="flex">{enrolled} </span>
+                <span className="text-xs">Students</span>
+              </p>
             </div>
-          </motion.div>
+            <p>{description.slice(0, 80)}...</p>
+          </div>
         </div>
 
-        {/* This wrapper ensures the button sticks to the bottom */}
-        <div className="mt-4">
-          <Link to={`/course-details/${_id}`}>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className={`btn w-full font-bold ${
-                isDark ? "bg-primary border-white" : "bg-[#5c2ede] text-white"
-              }`}
-            >
-              Details
-            </motion.button>
-          </Link>
+        <div>
+          <h3 className="text-xl md:text-2xl font-bold text-primary mt-3">
+            ${price}
+          </h3>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

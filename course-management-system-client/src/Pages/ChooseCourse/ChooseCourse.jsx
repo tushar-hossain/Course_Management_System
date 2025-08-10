@@ -5,13 +5,13 @@ import { Link } from "react-router";
 const ChooseCourse = () => {
   return (
     <div>
-      <h1 className="bg-base-300 w-fit px-5 py-1 font-semibold rounded-full text-[#7659ff]">
+      <h1 className="bg-base-300 w-fit px-5 py-1 font-semibold rounded-full text-primary">
         <li> Why Choose Course</li>
       </h1>
 
-      <div className="lg:flex gap-4 text-white">
+      <div className="lg:flex gap-4 bg-base-100 px-2 rounded-md mt-2">
         <div className=" space-y-3 lg:w-[800px] mt-5">
-          <h1 className="text-xl md:text-2xl lg:text-4xl text-justify font-semibold mb-3">
+          <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-3 text-primary">
             The Educational Advantage of DB Programming
           </h1>
           <p className=" text-justify">
@@ -33,7 +33,7 @@ const ChooseCourse = () => {
           </div>
 
           <Link to="/free-seminar-schedule">
-            <button className="btn bg-[#7659FF] border border-white text-white md:mt-10 mb-10 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+            <button className="btn bg-secondary border border-white text-white md:mt-10 mb-10 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
               Free Seminar Schedule
             </button>
           </Link>

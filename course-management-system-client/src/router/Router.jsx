@@ -16,6 +16,7 @@ import Instructor from "../Pages/Instructor/Instructor";
 import AllCourses from "../Pages/AllCourses/AllCourses";
 import CoursesItem from "../Pages/CoursesItem/CoursesItem";
 import FreeSeminarSchedule from "../Pages/FreeSeminarSchedule/FreeSeminarSchedule";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -124,6 +125,13 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
+  // dashboard
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+  },
+
   {
     path: "forgot-password",
     element: <ForgotPassword />,

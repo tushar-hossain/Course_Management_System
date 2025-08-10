@@ -4,6 +4,7 @@ import logo from "/public/logo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
 import { CiSearch } from "react-icons/ci";
+import Dashboard from "../Dashboard/Dashboard";
 
 const Navbar = () => {
   const { user, logOutUser, isDark, setIsDark } = use(AuthContext);
@@ -149,11 +150,9 @@ const Navbar = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
+                  <p className="ml-2">{user?.displayName}</p>
                   <li>
-                    <p>{user?.displayName}</p>
-                  </li>
-                  <li>
-                    <p>{user?.email}</p>
+                    <Link to={"/dashboard"}>Dashboard</Link>
                   </li>
                   <li>
                     <button onClick={handelLogOut}>Logout</button>

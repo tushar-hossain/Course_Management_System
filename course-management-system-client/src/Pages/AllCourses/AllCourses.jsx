@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const AllCourses = () => {
   const courseData = useLoaderData();
@@ -48,12 +48,13 @@ const AllCourses = () => {
     <div className="py-12 w-11/12 mx-auto">
       <div className="flex items-center justify-between">
         <div className=" w-full">
-          <h1 className="text-xl text-white md:text-2xl lg:text-4xl font-semibold">
+          <h1 className="text-xl text-primary md:text-2xl lg:text-4xl font-semibold">
             All Courses
           </h1>
         </div>
+
         <div className="w-full items-center flex px-4">
-          <span className="text-white">Sort By </span>{" "}
+          <span className="text-primary">Sort By </span>{" "}
           <select
             onChange={handelChange}
             defaultValue="sort"
@@ -66,34 +67,26 @@ const AllCourses = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-8">
         {courses.map((course) => {
-          const { _id, title, description, instructor, startDate, amount } =
-            course || {};
+          const { _id, description, image, title } = course || {};
           return (
-            <div
-              key={_id}
-              className={`max-w-lg p-4 shadow-md rounded-lg shadow-indigo-500 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]`}
-            >
-              <div>
-                <div className="space-y-4">
-                  <div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1, transition: { duration: 2 } }}
-                    className="text-white p-2 rounded-lg"
-                  >
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold">{title}</h3>
-                      <p className="leading-snug">{description}</p>
-                      <p className="font-semibold">Instructor: {instructor}</p>
-                      <p className="font-semibold">Course Fee: {amount}</p>
-                      <p className="font-semibold">
-                        Course Start Date: {startDate}
-                      </p>
-                    </div>
-                  </div>
+            <div className="bg-base-300 p-2 rounded-lg flex flex-col">
+              <div className="flex-1">
+                <div>
+                  <img className="h-40 rounded-md w-full" src={image} alt="" />
+                </div>
+                <div className="space-y-3 mt-4">
+                  <h1 className="text-xl font-bold text-primary">{title}</h1>
+                  <p>{description.slice(0, 80)}...</p>
                 </div>
               </div>
+              <Link
+                to={`/course-details/${_id}`}
+                className="bg-secondary py-2 rounded-md text-center text-white"
+              >
+                View Details
+              </Link>
             </div>
           );
         })}

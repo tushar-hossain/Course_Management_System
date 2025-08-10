@@ -85,89 +85,95 @@ const CourseDetails = () => {
   };
 
   const {
-    title,
+    _id,
+    access,
+    certificate,
+    certification,
+    courseLevel,
     description,
-    image,
-    date,
-    time,
-    instructor,
     duration,
-    level,
-    tags,
+    image,
+    language,
+    price,
+    title,
+    whatYoullLearn,
+    whoThisCourseIsFor,
     seats,
-    enrolled,
-    amount,
-    startDate,
   } = courses || {};
 
   return (
-    <div className="py-12 text-white">
-      <div className="max-w-lg p-4 shadow-md mx-auto rounded-lg shadow-indigo-500 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
-        <div className="space-y-4">
+    <div className="w-11/12 mx-auto my-12 bg-base-100 p-3 rounded-md">
+      <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-primary my-8 text-center">
+        {title}
+      </h1>
+
+      <div className="grid grid-cols-12 gap-5">
+        {/* left side */}
+        <div className="col-span-12 md:col-span-8 space-y-3">
+          <p>{description}</p>
+          <div>
+            <h3 className="text-xl font-bold md:text-2xl text-primary">
+              Certification
+            </h3>
+            <p>{certification}</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold md:text-2xl text-primary">
+              Who this course is for
+            </h3>
+            <p>{whoThisCourseIsFor}</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold md:text-2xl text-primary">
+              What you'll learn in this course:
+            </h3>
+            <p>{whatYoullLearn}</p>
+          </div>
+        </div>
+
+        {/* right side */}
+        <div className="col-span-12 md:col-span-4">
+          {/* image */}
           <div className="space-y-2">
             <img
               src={image}
               alt="course images"
-              className="w-[300px] mx-auto rounded-md h-[300px] dark:bg-gray-500"
+              className="h-50 w-full rounded-lg"
             />
           </div>
-          <div>
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold">{title}</h3>
-              <p>
-                {tags?.map((sk, index) => (
-                  <span className="mr-3 font-semibold" key={index}>
-                    {sk}
-                  </span>
-                ))}
-              </p>
-              <p className="leading-snug">{description}</p>
-              <p className="font-semibold">Instructor: {instructor}</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <p>
-                <span className="font-semibold">Date: </span>
-                {date}
-              </p>
-              <p>{time}</p>
-            </div>
-            <p>
-              <span className="font-semibold">Duration: </span>
-              {duration}
+          <div className="px-4 space-y-3 mt-8">
+            <p className="flex justify-between font-bold text-xl text-primary">
+              <span>Price:</span> <span>${price}</span>
             </p>
-            <p>
-              <span className="font-semibold">Level: </span>
-              {level}
+            <p className="flex justify-between">
+              <span className=" font-semibold text-primary">Course Level:</span>{" "}
+              <span>{courseLevel}</span>
             </p>
-            <p>
-              <span className="font-semibold">Total Enrolled : </span>
-              {enrolled}
+            <p className="flex justify-between">
+              <span className=" font-semibold text-primary">Duration:</span>{" "}
+              <span>{duration}</span>
             </p>
-            <p>
-              <span className="font-semibold">Seats: </span>
-              {seats}
+            <p className="flex justify-between">
+              <span className=" font-semibold text-primary">Certificate:</span>{" "}
+              <span>{certificate}</span>
             </p>
-            <p>
-              <span className="font-semibold">Course Fee: </span>
-              {amount}
+            <p className="flex justify-between">
+              <span className=" font-semibold text-primary">Language:</span>{" "}
+              <span>{language}</span>
             </p>
-            <p>
-              <span className="font-semibold">Course Start Date: </span>
-              {startDate}
+            <p className="flex justify-between">
+              <span className=" font-semibold text-primary">Access:</span>{" "}
+              <span>{access}</span>
             </p>
           </div>
-          {/* button enroll */}
 
-          <div>
+          {/* button enroll */}
+          <div className="my-5">
             {user ? (
               seats > 0 ? (
                 <button
                   onClick={handelEnroll}
-                  className={`w-full text-white py-2 rounded-lg transition ${
-                    isEnrolled
-                      ? "bg-[#5c2ede] cursor-pointer"
-                      : "bg-[#5c2ede] cursor-pointer"
-                  } border hover:shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]`}
+                  className="bg-secondary rounded-md px-4 py-2"
                 >
                   {isEnrolled ? "Enrolled" : "Enroll Now"}
                 </button>

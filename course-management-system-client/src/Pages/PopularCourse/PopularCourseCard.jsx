@@ -1,60 +1,69 @@
-import React, { use } from "react";
-import { GrCertificate } from "react-icons/gr";
-import { AuthContext } from "../../Context/AuthContext/AuthContext";
-import { motion } from "motion/react";
+import React, { Component, use } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { Link } from "react-router";
+import { CiClock2 } from "react-icons/ci";
+import { PiStudent } from "react-icons/pi";
 
 const PopularCourseCard = ({ PopularCoursePromise }) => {
   const courses = use(PopularCoursePromise);
-  const { isDark } = use(AuthContext);
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
+  };
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {courses.map((course) => {
-          const { _id, title, description, duration, level, tags } =
-            course || {};
-          return (
-            <motion.div
-              key={_id}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 1 }}
-              className={`${
-                isDark
-                  ? "bg-linear-to-r from-[#5c2ede] text-white"
-                  : "bg-linear-to-r from-[#5c2ede] text-white"
-              } p-5 rounded-lg space-y-3 hover:shadow-2xl shadow-[#5c2ede]`}
-            >
-              <div>
-                <h1 className="text-xl md:text-2xl font-semibold mb-3">
-                  {title}
-                  <p className="text-sm">
-                    {tags.map((item, index) => (
-                      <span key={index} className="mr-1">
-                        {item}
-                      </span>
-                    ))}
-                  </p>
-                </h1>
-
-                <p>{description}</p>
+      <div className="slider-container my-8">
+        <Slider {...settings}>
+          {courses?.map((course) => {
+            return (
+              <div className="bg-base-100 p-2 rounded-lg h-full">
+                <Link to={`/course-details/${course._id}`}>
+                  <div className="flex flex-col">
+                    <div>
+                      <img
+                        className="h-60 rounded-md w-full"
+                        src={course?.image}
+                        alt=""
+                      />
+                    </div>
+                    <div className="space-y-3 mt-4">
+                      <h1 className="font-bold text-primary">
+                        {course?.title}
+                      </h1>
+                      <div className="flex justify-between items-center">
+                        <p className="flex gap-3 items-center">
+                          <CiClock2 size={20} /> {course?.date}
+                        </p>
+                        <p className="flex gap-1 items-center">
+                          <PiStudent size={20} />
+                          <span className="flex">{course?.enrolled} </span>
+                          <span className="text-xs">Students</span>
+                        </p>
+                      </div>
+                      <p className="text-xs">
+                        {course?.description.slice(0, 80)}...
+                      </p>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-2xl font-bold text-primary mt-3">
+                        ${course?.price}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
               </div>
-              <hr />
-              <div className="flex items-center gap-3">
-                <GrCertificate size={20} />
-                <p>
-                  with{" "}
-                  <span className="font-bold">Professional Certification</span>
-                </p>
-              </div>
-              <hr />
-
-              <div className="flex items-center justify-between">
-                <p>{level}</p>
-                <p>{duration}</p>
-              </div>
-            </motion.div>
-          );
-        })}
+            );
+          })}
+        </Slider>
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ const Header = ({ sliders }) => {
                     </p>
                     <Link
                       to={"/"}
-                      className="text-xs bg-secondary text-white px-1 py-2 rounded-md"
+                      className="text-xs bg-secondary text-white px-1 py-2 rounded-md cursor-pointer"
                     >
                       {item.ctaText}
                     </Link>

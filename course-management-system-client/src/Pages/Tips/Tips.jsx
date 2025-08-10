@@ -1,60 +1,31 @@
-import React from "react";
-import { motion } from "motion/react";
+import { Link } from "react-router";
 
 const Tips = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="my-8 bg-base-100 p-2 rounded-md">
       {/* card 1 */}
-      <div className="bg-[#EEEBFF] py-10 rounded-lg text-center">
-        <motion.img
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="mx-auto"
-          src="https://i.ibb.co/wrBS8gZJ/h4-banner-1.png"
-          alt="card image"
-        />
-        <div>
-          <h1 className="mt-5 text-xl md:text-2xl font-semibold text-black">
-            Discover your professional{" "}
-            <span className="text-[#7659FF]">strengths and weaknesses</span>
-          </h1>
+      <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
+        <div className="flex-1">
+          <img
+            className="mx-auto h-72"
+            src="https://i.ibb.co.com/JwqwL2r8/instructor.webp"
+            alt="card image"
+          />
         </div>
-      </div>
-
-      {/* card 2 */}
-      <div className="bg-[#EEEBFF] py-10 rounded-lg text-center">
-        <motion.img
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="mx-auto"
-          src="https://i.ibb.co/6cbKb4DK/h4-banner-2.png"
-          alt="card image"
-        />
-        <div>
-          <h1 className="mt-5 text-xl md:text-2xl font-semibold text-black">
-            Get <span className="text-[#7659FF]">personalized course </span>{" "}
-            recommendations to upskill yourself
+        <div className="space-y-4 flex-1">
+          <h1 className="mt-5 text-xl md:text-2xl lg:text-4xl font-bold text-primary">
+            Become an Instructor And Join with us
           </h1>
-        </div>
-      </div>
-
-      {/* card 3 */}
-      <div className="bg-[#EEEBFF] py-10 rounded-lg text-center">
-        <motion.img
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="mx-auto"
-          src="https://i.ibb.co/CKs1pVYK/h4-banner-3.png"
-          alt="card image"
-        />
-        <div>
-          <h1 className="mt-5 text-xl md:text-2xl font-semibold text-black">
-            Explore{" "}
-            <span className="text-[#7659FF]">
-              careers that match your personality,
-            </span>{" "}
-            your strengths, and your interest
-          </h1>
+          <p>
+            Explore all of our courses and pick your suitable ones to enroll and
+            start learning with us!
+          </p>
+          <Link
+            to={"/all-courses"}
+            className="px-4 py-2 bg-secondary rounded-md text-white"
+          >
+            Start Teaching Today
+          </Link>
         </div>
       </div>
     </div>
