@@ -4,10 +4,12 @@ import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const PostedCourseList = ({ ManageCoursePromise }) => {
   const coursesData = use(ManageCoursePromise);
   const [courses, setCourses] = useState([]);
+  const { isDark } = use(AuthContext);
 
   useEffect(() => {
     setCourses(coursesData);
@@ -44,11 +46,11 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
   };
   return (
     <div>
-      <div className="overflow-x-auto text-white">
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-base-300">
+            <tr>
               <th>#</th>
               <th>Name</th>
               <th>Course</th>
@@ -63,8 +65,10 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
                 course || {};
               return (
                 <tr key={_id}>
-                  <td>{index + 1}</td>
-                  <td>
+                  <td className={`${isDark ? "text-black" : "text-white"}`}>
+                    {index + 1}
+                  </td>
+                  <td className={`${isDark ? "text-black" : "text-white"}`}>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
@@ -79,17 +83,19 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td className={`${isDark ? "text-black" : "text-white"}`}>
                     {title}
                     <br />
                     <span className="badge badge-ghost badge-sm">
                       {instructor}
                     </span>
                   </td>
-                  <td>{description}</td>
+                  <td className={`${isDark ? "text-black" : "text-white"}`}>
+                    {description}
+                  </td>
                   <th className="flex items-center gap-3">
                     <Link to={`/editCourse/${_id}`}>
-                      <button className="p-3 bg-base-300 rounded-lg cursor-pointer hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-[#5d2ede]">
+                      <button className="p-3 bg-base-300 rounded-lg cursor-pointer hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-primary">
                         {" "}
                         <FaEdit size={20} />{" "}
                       </button>
@@ -98,8 +104,7 @@ const PostedCourseList = ({ ManageCoursePromise }) => {
                       onClick={() => handelDelete(_id)}
                       className="p-3 bg-base-300 rounded-lg cursor-pointer hover:text-red-600"
                     >
-                      {" "}
-                      <FaTrashAlt size={20} />{" "}
+                      <FaTrashAlt size={20} />
                     </button>
                   </th>
                 </tr>

@@ -1,22 +1,28 @@
-import React from "react";
+import React, { use } from "react";
 import { FaEdit } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const CoursesItem = () => {
   const courseData = useLoaderData();
+  const { isDark } = use(AuthContext);
 
   return (
-    <div className="py-12 w-11/12 mx-auto">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-white">
+    <div
+      className={`py-12 px-4 rounded-md ${
+        isDark ? "bg-black" : "bg-black"
+      }`}
+    >
+      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-primary">
         My Posted Course
       </h1>
 
-      <div className="overflow-x-auto text-white">
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-base-300">
+            <tr>
               <th>#</th>
               <th>Name</th>
               <th>Course</th>

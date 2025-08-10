@@ -173,7 +173,7 @@ const CourseDetails = () => {
               seats > 0 ? (
                 <button
                   onClick={handelEnroll}
-                  className="bg-secondary rounded-md px-4 py-2"
+                  className="bg-secondary rounded-md px-4 py-2 text-white w-full cursor-pointer"
                 >
                   {isEnrolled ? "Enrolled" : "Enroll Now"}
                 </button>

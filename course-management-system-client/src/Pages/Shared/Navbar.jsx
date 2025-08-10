@@ -41,26 +41,20 @@ const Navbar = () => {
       <li>
         <NavLink to="/all-courses">All Courses</NavLink>
       </li>
+      <li>
+        <NavLink to="/free-seminar-schedule">Free Seminar</NavLink>
+      </li>
       {/*  */}
-      {/* {user && (
+      {user && (
         <>
           <li>
-            <NavLink to="/addCourse">Add course</NavLink>
-          </li>
-          <li>
-            <NavLink to="/manageCourse">Manage Courses</NavLink>
-          </li>
-          <li>
             <NavLink to="/myEnrolledCourses">My Enrolled Courses</NavLink>
-          </li>
-          <li>
-            <NavLink to="/all-courses-item">All Courses Item</NavLink>
           </li>
           <li>
             <NavLink to="/instructor">Courses Instructor</NavLink>
           </li>
         </>
-      )} */}
+      )}
     </>
   );
 

@@ -1,10 +1,11 @@
+import { Outlet } from "react-router";
 export default function DashboardNavbar({ drawer }) {
   return (
     <div className="drawer">
       <input id={drawer} type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
+      <div className="drawer-content flex flex-col gap-3">
         {/* Navbar */}
-        <div className="navbar bg-[#364253] w-full lg:hidden">
+        <div className="navbar bg-[#364253] w-full">
           <div className="flex-none lg:hidden">
             <label
               htmlFor={drawer}
@@ -28,7 +29,9 @@ export default function DashboardNavbar({ drawer }) {
           </div>
         </div>
         {/* Page content here */}
-        <div className="m-5">{/* <Outlet /> */}</div>
+        <div className="m-5">
+          <Outlet />
+        </div>
       </div>
       <div className="drawer-side">
         <label

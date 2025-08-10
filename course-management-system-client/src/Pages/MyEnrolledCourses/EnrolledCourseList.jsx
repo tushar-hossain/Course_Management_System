@@ -2,10 +2,13 @@ import axios from "axios";
 import React, { use, useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import AuthProvider from "../../Context/AuthContext/AuthProvider";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const EnrolledCourseList = ({ MyEnrolledCoursesPromise }) => {
   const coursesData = use(MyEnrolledCoursesPromise);
   const [courses, setCourses] = useState([]);
+  const { isDark } = use(AuthContext);
 
   useEffect(() => {
     setCourses(coursesData);
@@ -43,12 +46,12 @@ const EnrolledCourseList = ({ MyEnrolledCoursesPromise }) => {
   };
 
   return (
-    <div>
-      <div className="overflow-x-auto text-white">
+    <div className="bg-base-100 px-2 py-3 rounded-md">
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-base-300">
+            <tr className={isDark ? "text-white" : "text-black"}>
               <th>#</th>
               <th>Name</th>
               <th>Course Title</th>

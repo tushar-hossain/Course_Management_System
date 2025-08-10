@@ -13,7 +13,7 @@ const trainingCourse = fetch("http://localhost:3000/courses").then((res) =>
   res.json()
 );
 
-const sliders = fetch(`http://localhost:3000/api/slider`).then((res) =>
+const sliders = fetch("http://localhost:3000/api/slider").then((res) =>
   res.json()
 );
 

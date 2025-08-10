@@ -5,11 +5,14 @@ import Loading from "../../components/Loading";
 import useManageCourseApi from "../../api/useManageCourseApi";
 
 const ManageCourse = () => {
-  const { user } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
+
   const { ManageCoursePromise } = useManageCourseApi();
   return (
-    <div className="py-12 w-11/12 mx-auto">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-white">
+    <div
+      className={`py-12  px-4 rounded-md ${isDark ? "bg-black" : "bg-black"}`}
+    >
+      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-primary">
         My Posted Course
       </h1>
       <Suspense fallback={<Loading />}>

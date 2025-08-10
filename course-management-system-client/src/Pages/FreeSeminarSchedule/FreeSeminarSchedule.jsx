@@ -21,7 +21,7 @@ const FreeSeminarSchedule = () => {
   };
 
   return (
-    <section className="bg-linear-to-r from-[#5c2ede] shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] text-white py-12 px-4 rounded-lg max-w-4xl mx-auto my-10 border hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+    <section className="bg-linear-to-r from-primary to-secondary shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] text-white py-12 px-4 rounded-lg max-w-4xl mx-auto my-10 border hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}

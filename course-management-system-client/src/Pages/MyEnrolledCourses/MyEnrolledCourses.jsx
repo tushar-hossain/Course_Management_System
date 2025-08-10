@@ -9,7 +9,7 @@ const MyEnrolledCourses = () => {
   const { MyEnrolledCoursesPromise } = useMyEnrolledCoursesApi();
   return (
     <div className="py-12 w-11/12 mx-auto">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-white">
+      <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-primary">
         My Enrolled Courses
       </h1>
       <div>

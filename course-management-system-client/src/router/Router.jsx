@@ -17,6 +17,7 @@ import AllCourses from "../Pages/AllCourses/AllCourses";
 import CoursesItem from "../Pages/CoursesItem/CoursesItem";
 import FreeSeminarSchedule from "../Pages/FreeSeminarSchedule/FreeSeminarSchedule";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashboardHome from "../Pages/Dashboard/Home/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -47,24 +48,6 @@ export const router = createBrowserRouter([
         path: "course-details/:id",
         element: <CourseDetails />,
         handle: { title: "Course Details" },
-      },
-      {
-        path: "addCourse",
-        element: (
-          <PrivateRoute>
-            <AddCourse />
-          </PrivateRoute>
-        ),
-        handle: { title: "Add Course" },
-      },
-      {
-        path: "manageCourse",
-        element: (
-          <PrivateRoute>
-            <ManageCourse />
-          </PrivateRoute>
-        ),
-        handle: { title: "Manage Course" },
       },
       {
         path: "editCourse/:id",
@@ -109,6 +92,32 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading />,
         handle: { title: "All Courses" },
       },
+    ],
+  },
+
+  // dashboard
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "home",
+        element: (
+          <PrivateRoute>
+            <DashboardHome />
+          </PrivateRoute>
+        ),
+        handle: { title: "Add Course" },
+      },
+      {
+        path: "addCourse",
+        element: (
+          <PrivateRoute>
+            <AddCourse />
+          </PrivateRoute>
+        ),
+        handle: { title: "Add Course" },
+      },
       {
         path: "all-courses-item",
         element: (
@@ -123,13 +132,16 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading />,
         handle: { title: "All Courses" },
       },
+      {
+        path: "manageCourse",
+        element: (
+          <PrivateRoute>
+            <ManageCourse />
+          </PrivateRoute>
+        ),
+        handle: { title: "Manage Course" },
+      },
     ],
-  },
-
-  // dashboard
-  {
-    path: "dashboard",
-    element: <Dashboard />,
   },
 
   {
