@@ -62,19 +62,6 @@ const CourseCard = ({ course }) => {
               </div>
             </div>
 
-            {/* Course Features */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full font-medium">
-                Certificate
-              </span>
-              <span className="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 text-xs rounded-full font-medium">
-                Hands-on
-              </span>
-              <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full font-medium">
-                Job Ready
-              </span>
-            </div>
-
             {/* CTA Button */}
             <div className="flex items-center justify-between">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">

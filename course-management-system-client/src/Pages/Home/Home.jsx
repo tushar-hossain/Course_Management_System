@@ -46,11 +46,6 @@ const Home = () => {
         <PopularCourse />
       </section>
 
-      {/* Why Choose  */}
-      {/* <section className="w-11/12 mx-auto my-12">
-        <ChooseCourse />
-      </section> */}
-
       {/* Tips */}
       <section className="w-11/12 mx-auto my-12">
         <Tips />

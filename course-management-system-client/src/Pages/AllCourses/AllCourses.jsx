@@ -1,8 +1,7 @@
-import React, { use, useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { CiSearch } from "react-icons/ci";
-import { BiSortAlt2 } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
 import { HiOutlineAcademicCap } from "react-icons/hi";
 import axios from "axios";
@@ -62,7 +61,7 @@ const AllCourses = () => {
 
   return (
     <div
-      className={`min-h-screen py-12 transition-colors duration-300 ${
+      className={`w-11/12 mx-auto my-10 rounded-md min-h-screen py-12 transition-colors duration-300 ${
         isDark ? "bg-gray-900" : "bg-gradient-to-br from-blue-50 to-indigo-100"
       }`}
     >
@@ -179,8 +178,7 @@ const AllCourses = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {courses?.map((course) => {
-              const { _id, description, image, title, price, enrolled } =
-                course || {};
+              const { _id, description, image, title, price } = course || {};
               return (
                 <div
                   key={_id}
@@ -206,43 +204,35 @@ const AllCourses = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <h2
-                      className={`text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300 ${
-                        isDark
-                          ? "text-white group-hover:text-blue-400"
-                          : "text-gray-800 group-hover:text-blue-600"
-                      }`}
-                    >
-                      {title}
-                    </h2>
-
-                    <p
-                      className={`text-sm mb-4 line-clamp-3 ${
-                        isDark ? "text-gray-300" : "text-gray-600"
-                      }`}
-                    >
-                      {description?.slice(0, 100)}...
-                    </p>
-
-                    {enrolled && (
-                      <div
-                        className={`flex items-center mb-4 text-sm ${
-                          isDark ? "text-gray-400" : "text-gray-500"
+                  <div className="flex flex-col p-6">
+                    <div className="">
+                      <h2
+                        className={`text-xl font-bold mb-3 line-clamp-2 transition-colors duration-300 ${
+                          isDark
+                            ? "text-white group-hover:text-blue-400"
+                            : "text-gray-800 group-hover:text-blue-600"
                         }`}
                       >
-                        <HiOutlineAcademicCap className="mr-2" />
-                        <span>{enrolled} students enrolled</span>
-                      </div>
-                    )}
+                        {title}
+                      </h2>
 
-                    {/* Action Button */}
-                    <Link
-                      to={`/course-details/${_id}`}
-                      className="block w-full text-center py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg transform hover:-translate-y-0.5"
-                    >
-                      View Details
-                    </Link>
+                      <p
+                        className={`text-sm mb-4 line-clamp-3 ${
+                          isDark ? "text-gray-300" : "text-gray-600"
+                        }`}
+                      >
+                        {description?.slice(0, 80)}...
+                      </p>
+                    </div>
+
+                    <div className="flex-1">
+                      <Link
+                        to={`/course-details/${_id}`}
+                        className="block w-full text-center py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg transform hover:-translate-y-0.5"
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </div>
                 </div>
               );
