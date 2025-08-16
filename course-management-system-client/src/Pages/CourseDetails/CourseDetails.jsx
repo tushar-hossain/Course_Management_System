@@ -85,7 +85,6 @@ const CourseDetails = () => {
   };
 
   const {
-    _id,
     access,
     certificate,
     certification,
@@ -185,7 +184,7 @@ const CourseDetails = () => {
             ) : (
               <button
                 disabled
-                className="bg-[#5c2ede] btn btn-primary border w-full text-white py-2 rounded-lg"
+                className="bg-secondary border-none text-white w-full py-2 rounded-lg cursor-not-allowed"
               >
                 Login to Enroll
               </button>

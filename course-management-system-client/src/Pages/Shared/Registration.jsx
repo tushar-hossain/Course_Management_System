@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Registration = () => {
   const { setUser, createUser, userProfileUpdate, googleLoggedIn } =
@@ -51,6 +52,17 @@ const Registration = () => {
             setUser(result.user);
             toast.success("User registration successfully.");
             navigate(location.state || "/");
+
+            const userInfo = { email, role: "user" };
+            axios
+              .post(
+                "https://course-management-system-server-ashen.vercel.app/users",
+                userInfo
+              )
+              .then(() => {})
+              .catch(() => {
+                toast.error("Failed to Add course.");
+              });
           })
           .catch(() => {
             toast.error("Please try again");
@@ -64,7 +76,20 @@ const Registration = () => {
       .then((result) => {
         setUser(result.user);
         toast.success("User registration successfully.");
-        navigate(location.state || "/");
+        const userInfo = { email: result.user.email, role: "user" };
+        axios
+          .post(
+            "https://course-management-system-server-ashen.vercel.app/users",
+            userInfo
+          )
+          .then((res) => {
+            if (res.data.insertedId) {
+              navigate(location.state || "/");
+            }
+          })
+          .catch(() => {
+            toast.error("Failed to Add course.");
+          });
       })
       .catch(() => toast.error("Please try again"));
   };
@@ -160,9 +185,17 @@ const Registration = () => {
               </p>
             </div>
           </div>
+          <div className="flex items-center flex-col text-white">
+            <label className="label">Remember me</label>
+            <input
+              type="checkbox"
+              defaultChecked
+              className="checkbox text-white bg-white"
+            />
+          </div>
         </form>
         {/* button */}
-        <button className="block w-full p-3 text-center rounded-sm dark:text-white bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] cursor-pointer">
+        <button className="block w-full p-3 text-center rounded-sm dark:text-white bg-secondary hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] cursor-pointer">
           Register
         </button>
         <div className="flex items-center pt-4 space-x-1">
@@ -176,7 +209,7 @@ const Registration = () => {
           {/* Google */}
           <button
             onClick={registerGoogle}
-            className="btn bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-[#e5e5e5]"
+            className="btn bg-secondary hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-[#e5e5e5]"
           >
             <svg
               aria-label="Google logo"

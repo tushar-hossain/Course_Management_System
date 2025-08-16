@@ -10,9 +10,7 @@ const CoursesItem = () => {
 
   return (
     <div
-      className={`py-12 px-4 rounded-md ${
-        isDark ? "bg-black" : "bg-black"
-      }`}
+      className={`py-12 px-4 rounded-md ${isDark ? "bg-black" : "bg-black"}`}
     >
       <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold mb-10 text-primary">
         My Posted Course
@@ -28,7 +26,7 @@ const CoursesItem = () => {
               <th>Course</th>
               <th>Description</th>
               <th>Course Fee</th>
-              <th>Start Date</th>
+              <th>Course Level</th>
               <th></th>
             </tr>
           </thead>
@@ -39,11 +37,10 @@ const CoursesItem = () => {
                 _id,
                 name,
                 description,
-                instructor,
                 image,
                 title,
-                amount,
-                startDate,
+                price,
+                courseLevel,
               } = course || {};
               return (
                 <tr key={_id} className="text-white">
@@ -63,16 +60,10 @@ const CoursesItem = () => {
                       </div>
                     </div>
                   </td>
-                  <td>
-                    {title}
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      {instructor}
-                    </span>
-                  </td>
+                  <td>{title}</td>
                   <td>{description.slice(0, 20)}...</td>
-                  <td>{amount}</td>
-                  <td>{startDate}</td>
+                  <td>{price}</td>
+                  <td>{courseLevel}</td>
                   <th className="flex items-center gap-3">
                     <Link to={`/course-details/${_id}`}>
                       <button className="p-3 bg-base-300 rounded-lg cursor-pointer hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-[#5d2ede]">

@@ -4,6 +4,7 @@ import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
   const { setUser, loginUser, googleLoggedIn, gutHubLoggedIn } =
@@ -26,8 +27,10 @@ const Login = () => {
     // login user
     loginUser(email, password)
       .then((result) => {
+        // data send to server side
         setUser(result.user);
         toast.success("User login successful.");
+
         navigate(location.state || "/");
       })
       .catch(() => {
@@ -41,6 +44,17 @@ const Login = () => {
         setUser(result.user);
         toast.success("User login successful.");
         navigate(location.state || "/");
+
+        const userInfo = { email: result.user.email, role: "user" };
+        axios
+          .post(
+            "https://course-management-system-server-ashen.vercel.app/users",
+            userInfo
+          )
+          .then(() => {})
+          .catch(() => {
+            toast.error("Failed to Add course.");
+          });
       })
       .catch(() => toast.error("Login fails"));
   };
@@ -120,7 +134,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm dark:text-white bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] cursor-pointer">
+          <button className="block w-full p-3 text-center rounded-sm dark:text-white bg-secondary hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] cursor-pointer">
             Login
           </button>
         </form>
@@ -135,7 +149,7 @@ const Login = () => {
           {/* Google */}
           <button
             onClick={loginGoogle}
-            className="btn bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-[#e5e5e5]"
+            className="btn bg-secondary hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-[#e5e5e5]"
           >
             <svg
               aria-label="Google logo"
@@ -170,7 +184,7 @@ const Login = () => {
           {/* GitHub */}
           <button
             onClick={loginGithub}
-            className="btn bg-[#5d2ede] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-white"
+            className="btn bg-secondary hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-white border-white"
           >
             <svg
               aria-label="GitHub logo"

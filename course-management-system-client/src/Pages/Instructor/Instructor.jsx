@@ -9,7 +9,7 @@ const Instructor = () => {
       <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-primary">
         Instructor
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         {data.map((instructor) => {
           const {
             _id,

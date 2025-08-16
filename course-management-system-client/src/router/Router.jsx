@@ -45,6 +45,7 @@ export const router = createBrowserRouter([
       {
         path: "free-seminar-schedule",
         Component: FreeSeminarSchedule,
+        handle: { title: "Free Seminer Schedul" },
       },
       {
         path: "course-details/:id",
@@ -97,10 +98,12 @@ export const router = createBrowserRouter([
       {
         path: "blogs",
         Component: Blogs,
+        handle: { title: "Blogs" },
       },
       {
         path: "contact",
         Component: Contact,
+        handle: { title: "Conatact" },
       },
     ],
   },

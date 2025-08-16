@@ -1,5 +1,10 @@
+import { use } from "react";
 import { Outlet } from "react-router";
+import { AuthContext } from "../../../Context/AuthContext/AuthContext";
+
 export default function DashboardNavbar({ drawer }) {
+  const { user } = use(AuthContext);
+
   return (
     <div className="drawer">
       <input id={drawer} type="checkbox" className="drawer-toggle" />
@@ -27,6 +32,26 @@ export default function DashboardNavbar({ drawer }) {
               </svg>
             </label>
           </div>
+          {/* profile */}
+          <div className="mx-2 flex-1 px-2"></div>
+          <div className="flex-none">
+            <ul className="menu menu-horizontal">
+              {/* Navbar menu content here */}
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="user profile"
+                    src={user?.photoURL}
+                  />
+                </div>
+              </div>
+            </ul>
+          </div>
+          {/*  */}
         </div>
         {/* Page content here */}
         <div className="m-5">

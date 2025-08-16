@@ -55,16 +55,16 @@ const EnrolledCourseList = ({ MyEnrolledCoursesPromise }) => {
               <th>#</th>
               <th>Name</th>
               <th>Course Title</th>
-              <th>Instructor</th>
-              <th>Level</th>
+              <th>Email</th>
+              <th>Course Id</th>
               <th>Duration</th>
-              <th></th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
             {courses.map((course, index) => {
-              const { _id, title, image, level, instructor, duration } =
+              const { _id, title, image, email, courseId, duration } =
                 course || {};
               return (
                 <tr key={_id}>
@@ -82,8 +82,8 @@ const EnrolledCourseList = ({ MyEnrolledCoursesPromise }) => {
                     </div>
                   </td>
                   <td>{title}</td>
-                  <td>{instructor}</td>
-                  <td>{level}</td>
+                  <td>{email}</td>
+                  <td>{courseId}</td>
                   <td>{duration}</td>
                   <th className="flex items-center gap-3">
                     <button

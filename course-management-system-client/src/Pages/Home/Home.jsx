@@ -9,13 +9,13 @@ import MonthsCourse from "../MonthsCourse/MonthsCourse";
 import { categoryData } from "../../components/api/ApiCall";
 import Traning from "../Traning/Traning";
 
-const trainingCourse = fetch("http://localhost:3000/courses").then((res) =>
-  res.json()
-);
+const trainingCourse = fetch(
+  "https://course-management-system-server-ashen.vercel.app/courses"
+).then((res) => res.json());
 
-const sliders = fetch("http://localhost:3000/api/slider").then((res) =>
-  res.json()
-);
+const sliders = fetch(
+  "https://course-management-system-server-ashen.vercel.app/api/slider"
+).then((res) => res.json());
 
 const Home = () => {
   return (
@@ -47,9 +47,9 @@ const Home = () => {
       </section>
 
       {/* Why Choose  */}
-      <section className="w-11/12 mx-auto my-12">
+      {/* <section className="w-11/12 mx-auto my-12">
         <ChooseCourse />
-      </section>
+      </section> */}
 
       {/* Tips */}
       <section className="w-11/12 mx-auto my-12">
